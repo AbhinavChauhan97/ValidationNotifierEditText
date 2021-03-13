@@ -16,7 +16,7 @@ import java.util.*
  * @author abhinavchouhan97@gmail.com
  * @since 13-march-2021
  *
- * A subclass which notifies observers about when the text inside this editText
+ * A subclass of EditText which notifies observers about when the text inside this editText
  * is valid or invalid the validity is check against the regex that client provide if no regex is provided
  * no listeners will be called
  * moreover client can choose to draw a border with desired color when the text inside this editText becomes valid
