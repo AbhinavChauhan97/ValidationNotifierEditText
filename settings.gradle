@@ -1,0 +1,3 @@
+include ':validationnotifieredittext'
+include ':app'
+rootProject.name = "LibDemo"

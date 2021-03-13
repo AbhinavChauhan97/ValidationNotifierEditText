@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ValidationNotifierEditText">
+        <attr name="vne_validatorRegex" format="string"/>
+        <attr name="vne_textColor" format="color" />
+        <attr name="vne_borderColor" format="color"/>
+        <attr name="vne_validBorderColor" format="color"/>
+        <attr name="vne_invalidBorderColor" format="color"/>
+        <attr name="vne_giveBorder" format="boolean"/>
+        <attr name="vne_cornerRadius" format="dimension"/>
+        <attr name="vne_borderWidth" format="dimension"/>
+    </declare-styleable>
+
+</resources>
