@@ -10,6 +10,9 @@ import java.lang.IllegalArgumentException
 import java.util.*
 
 /**
+ * @author Abhinav Chouhan
+ * @author abhinavchouhan97@gmail.com
+ * @since 13-march-2021
  * <h> A Mediator Helper Class to notify the validity of a group of ValidationNotifierEditText</h>
  *
  * A child class of LinearLayout can only contain ValidationNotifierEditText as child views
