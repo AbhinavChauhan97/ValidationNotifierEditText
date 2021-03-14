@@ -94,9 +94,9 @@ in code
         validationNotifierEditTextGroup.setOnGroupValidationListener(object : ValidationNotifierEditTextGroup.ValidationEditTextGroupValidationListener{
         
         
-              /*called when all ValidationNotifierEdiText contains valid text , you can enable ok button here you are all passed all ValidationNotiferEditText because maybe you 
+              /*called when all ValidationNotifierEdiText contains valid text , you can enable ok button here you are all passed all ValidationNotiferEditText because maybe you want to do something else with them like fading them away when all are valid and perform a fragment transaciton after that */
               
-              want to do something else with them like fading them away when all are valid and perform a fragment transaciton after that *.
+              
                   override fun onAllBecomeValid(childValidationNotifierEditTexts: List<ValidationNotifierEditText>) {
                        
                        okButton.isEnabled = true
