@@ -92,16 +92,22 @@ in code
 
         val validationNotifierEditTextGroup = findViewById(R.id.vneg)
         validationNotifierEditTextGroup.setOnGroupValidationListener(object : ValidationNotifierEditTextGroup.ValidationEditTextGroupValidationListener{
+        
+        
               /*called when all ValidationNotifierEdiText contains valid text , you can enable ok button here you are all passed all ValidationNotiferEditText because maybe you 
+              
               want to do something else with them like fading them away when all are valid and perform a fragment transaciton after that *.
                   override fun onAllBecomeValid(childValidationNotifierEditTexts: List<ValidationNotifierEditText>) {
-                       childValidationNotifierEditTexts.forEach { _ ->
+                       
                        okButton.isEnabled = true
-                     }
+                   
                  }
+                 
                  /* called when any ValidationNotifierEditText is now contains invalid text but was previous containing valid text you can disable ok button here because form 
                    should contain all valid text in all text fields you are also passed the ValidationNotfierEditText which now conatian invalid text so that you can 
                   tell user where things went wrong*/
+                  
+                  
                   override fun onAnyBecomeInvalid(validationNotifierEditText: ValidationNotifierEditText) {
                       okButton.isEnabled = false
                    }
