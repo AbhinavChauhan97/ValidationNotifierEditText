@@ -12,23 +12,21 @@ import java.lang.IllegalArgumentException
 import java.util.*
 
 /**
- * @author Abhinav Chouhan
- * @author abhinavchouhan97@gmail.com
- * @since 13-march-2021
- *
  * A subclass of EditText which notifies observers about when the text inside this editText
  * is valid or invalid the validity is check against the regex that client provide if no regex is provided
  * no listeners will be called
  * moreover client can choose to draw a border with desired color when the text inside this editText becomes valid
  * or becomes invalid
- *
- * <b> for example </b> make border red when user enters number instead of alphabet to indicate that something is wrong
- *
+ * <b> for example </b>
+ * make border red when user enters number instead of alphabet to indicate that something is wrong
  * a default border color can also be provided
- *
- * <b> note </b> borders will only work if vne_giveBorder attribute is set to true which is by default false
+ * <b> note </b>
+ * borders will only work if vne_giveBorder attribute is set to true which is by default false
+ * @author Abhinav Chouhan
+ * @author abhinavchouhan97@gmail.com
+ * @since 13-march-2021
  */
-class ValidationNotifierEditText(context: Context, attributeSet: AttributeSet? = null) :
+class ValidationNotifierEditText @JvmOverloads constructor(context: Context, attributeSet: AttributeSet? = null) :
     androidx.appcompat.widget.AppCompatEditText(context, attributeSet) {
 
     /** without this variable set to true no border will be drawn **/
@@ -40,6 +38,7 @@ class ValidationNotifierEditText(context: Context, attributeSet: AttributeSet? =
             /** f a null value is passed for the color then just set
              *  transparent color because user is probably trying to remove the color
              */
+            Log.d("log","invalidate")
             paint?.color = value?:Color.TRANSPARENT
             invalidate() // invalidate to redraw with new color
         }
@@ -131,10 +130,12 @@ class ValidationNotifierEditText(context: Context, attributeSet: AttributeSet? =
                     //if the text matches our regex and was not matched when the last time a character was enter
                     // we are maintaining a previouslyMatched variable so that we do not redraw and notify our listeners
                      // if use is continuously entering valid or invalid characters
-                    if (text.matches(validatorRegex.toRegex()) && !previouslyMatched) {
-                        isValid = true
-                        previouslyMatched = true
-                        notifyValidity()
+                    if (text.matches(validatorRegex.toRegex())) {
+                        if(!previouslyMatched) {
+                            isValid = true
+                            previouslyMatched = true
+                            notifyValidity()
+                        }
                     } else if (previouslyMatched) {
                         isValid = false
                         previouslyMatched = false
@@ -160,6 +161,7 @@ class ValidationNotifierEditText(context: Context, attributeSet: AttributeSet? =
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (hasBorder) {
+
             canvas?.drawRoundRect(
                 0f + borderWidth!!,
                 0f + borderWidth!!,

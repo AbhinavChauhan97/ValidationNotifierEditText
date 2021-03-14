@@ -1,47 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
 <com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditTextGroup xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/vneg"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    app:layout_constraintTop_toTopOf="parent"
     tools:context=".MainActivity">
 
     <com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditText
         android:id="@+id/vne1"
-        app:vne_borderColor="@android:color/holo_orange_dark"
+        app:vne_borderColor="@android:color/holo_red_dark"
         app:vne_borderWidth="2dp"
         app:vne_giveBorder="true"
-        app:vne_validBorderColor="@android:color/holo_red_dark"
-        app:vne_invalidBorderColor="@android:color/holo_blue_dark"
+        android:layout_margin="5dp"
+        app:vne_cornerRadius="10dp"
+        app:vne_validBorderColor="@android:color/holo_green_dark"
+        app:vne_invalidBorderColor="@android:color/holo_red_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:tag="1"
-        app:vne_validatorRegex="[a-z]"/>
+        android:hint="enter only lower case letters"
+        android:textSize="20sp"
+        android:textColorHint="@android:color/darker_gray"
+        app:vne_validatorRegex="[a-z]+"/>
 
     <com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditText
         android:id="@+id/vne2"
-        app:vne_borderColor="@android:color/background_light"
+        app:vne_borderColor="@android:color/holo_blue_dark"
         app:vne_borderWidth="2dp"
         app:vne_cornerRadius="5dp"
         app:vne_giveBorder="true"
-        app:vne_validBorderColor="@color/purple_500"
-        app:vne_invalidBorderColor="@color/teal_700"
+        android:layout_margin="5dp"
+        android:textColorHint="@android:color/darker_gray"
+        app:vne_validBorderColor="@android:color/holo_blue_dark"
+        app:vne_invalidBorderColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:tag="2"
-        app:vne_validatorRegex="[1-9]"/>
+        android:textSize="20sp"
+        android:hint="enter only numbers"
+        app:vne_validatorRegex="[1-9]+"
+       />
 
     <com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditText
         android:id="@+id/vne3"
-        app:vne_borderColor="@android:color/holo_green_light"
-        app:vne_borderWidth="2dp"
-        app:vne_cornerRadius="5dp"
-        app:vne_giveBorder="true"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:textColorHint="@android:color/darker_gray"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:tag="3"
-        app:vne_validatorRegex="."/>
+        android:hint="enter only upper case letters"
+        app:vne_validatorRegex="[A-Z]+"
+        />
 
 </com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditTextGroup>
+
+<Button
+    android:id="@+id/ok_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="OK"
+    android:enabled="false"
+    app:layout_constraintTop_toBottomOf="@id/vneg"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="20dp"
+    android:layout_gravity="center"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,9 +10,6 @@ import java.lang.IllegalArgumentException
 import java.util.*
 
 /**
- * @author Abhinav Chouhan
- * @author abhinavchouhan97@gmail.com
- * @since 13-march-2021
  * <h> A Mediator Helper Class to notify the validity of a group of ValidationNotifierEditText</h>
  *
  * A child class of LinearLayout can only contain ValidationNotifierEditText as child views
@@ -24,6 +21,10 @@ import java.util.*
  * in that situation you can use this class and set up a listener on it then whenever all of the ValidationNotifierEditText
  * children of this ViewGroup are valid your listener will be called and when any of them becomes invalid then also your
  * listener is called so that you can tell user what was gone wrong
+ *
+ * @author Abhinav Chouhan
+ * @author abhinavchouhan97@gmail.com
+ * @since 13-march-2021
  */
 class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Context,attributeSet: AttributeSet? = null,defStyle:Int = 0)
     : LinearLayout(context,attributeSet,defStyle){
