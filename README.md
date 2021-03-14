@@ -105,10 +105,14 @@ in code
                   override fun onAnyBecomeInvalid(validationNotifierEditText: ValidationNotifierEditText) {
                       okButton.isEnabled = false
                    }
-
               })
+              
+              
+to use in your project add in  build.gradle     
 
-
-add in build.gradle to use in your project ->  implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.1' // use latest vesion 
+     implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.1' // use latest vesion 
+       
+             
+![DEMO](https://github.com/AbhinavChauhan97/ValidationNotifierEditText/blob/master/ezgif.com-gif-maker.gif)
 
      
