@@ -114,9 +114,22 @@ in code
               })
               
               
-to use in your project add in  build.gradle     
+to use in your project add  in  project level build.gradle    
 
+     allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+and in module level build.gradle 
+
+     dependencies  { 
+     
      implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.1' // use latest vesion 
+     
+     }
        
              
 ![DEMO](https://github.com/AbhinavChauhan97/ValidationNotifierEditText/blob/master/ezgif.com-gif-maker.gif)
