@@ -46,10 +46,10 @@ class ValidationNotifierEditText @JvmOverloads constructor(context: Context, att
     var validBorderColor:Int? = null
     /** valid this editText enters a invalid state the border will be drawn with this color **/
     var invalidBorderColor:Int? = null
-    private var cornerRadius: Float? = null
-    private var borderWidth: Float? = null
+    var cornerRadius: Float? = null
+    var borderWidth: Float? = null
     private var paint: Paint? = null
-    private val validatorRegex: String? // check the validity of text inside this editText against this regex
+    var validatorRegex: String? // check the validity of text inside this editText against this regex
     var isValid = false
         private set
 
@@ -103,7 +103,7 @@ class ValidationNotifierEditText @JvmOverloads constructor(context: Context, att
         /**
          * if we have a validator regex then only we are interested in drawing border or notifying listeners
          */
-        if (validatorRegex != null) {
+        if (validatorRegex != null){
 
             // retrive all the attributes
             hasBorder = ta.getBoolean(R.styleable.ValidationNotifierEditText_vne_giveBorder, false)
@@ -130,7 +130,7 @@ class ValidationNotifierEditText @JvmOverloads constructor(context: Context, att
                     //if the text matches our regex and was not matched when the last time a character was enter
                     // we are maintaining a previouslyMatched variable so that we do not redraw and notify our listeners
                      // if use is continuously entering valid or invalid characters
-                    if (text.matches(validatorRegex.toRegex())) {
+                    if (text.matches(validatorRegex!!.toRegex())) {
                         if(!previouslyMatched) {
                             isValid = true
                             previouslyMatched = true

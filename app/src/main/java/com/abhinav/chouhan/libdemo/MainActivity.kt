@@ -11,11 +11,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val validationNotifierEditTextGroup = findViewById<ValidationNotifierEditTextGroup>(R.id.vneg)
+        validationNotifierEditTextGroup.findViewById<ValidationNotifierEditText>(R.id.vne1)
+            .validatorRegex = "[A-Z]+"
+
         val okButton = findViewById<Button>(R.id.ok_button)
         validationNotifierEditTextGroup.setOnGroupValidationListener(object : ValidationNotifierEditTextGroup.ValidationEditTextGroupValidationListener{
             override fun onAllBecomeValid(childValidationNotifierEditTexts: List<ValidationNotifierEditText>) {
-                childValidationNotifierEditTexts.forEach {
+                childValidationNotifierEditTexts.forEach { _ ->
                     okButton.isEnabled = true
                 }
             }

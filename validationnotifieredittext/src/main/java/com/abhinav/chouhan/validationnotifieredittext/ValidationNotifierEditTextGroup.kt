@@ -6,14 +6,15 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import java.lang.IllegalArgumentException
 import java.util.*
 
 /**
  * <h> A Mediator Helper Class to notify the validity of a group of ValidationNotifierEditText</h>
  *
- * A child class of LinearLayout can only contain ValidationNotifierEditText as child views
- * and notifies all of those ValidationNotifierEditText contains valid text or when any of them now contain invalid text but previously
+ * A child class of ConstraintLayout
+ * which notifies whether  or not all children ValidationNotifierEditText contains valid text or when any of them now contain invalid text but previously
  * contained valid text
  *
  * <b> use case </b> you may be creating a form to create account in when all editText should contain valid data
@@ -27,7 +28,7 @@ import java.util.*
  * @since 13-march-2021
  */
 class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Context,attributeSet: AttributeSet? = null,defStyle:Int = 0)
-    : LinearLayout(context,attributeSet,defStyle){
+    : ConstraintLayout(context,attributeSet){
 
     //list which contains a list of validationNotifierEditTexts list
     private val listener = object : ValidationNotifierEditText.ValidationChangeListener{
@@ -71,11 +72,10 @@ class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Context
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         super.addView(child, index, params)
 
-        if(child !is ValidationNotifierEditText){
-            throw IllegalArgumentException("child views of ValidationNotifierEditTextGroup should only be ValidationNotifierEditText")
+        if(child is ValidationNotifierEditText) {
+            validationNotifierEditTextList.add(child)
+            child.addValidationChangeListener(listener)
         }
-        validationNotifierEditTextList.add(child)
-        child.addValidationChangeListener(listener)
     }
 
 
