@@ -34,7 +34,7 @@ Also client can choose to draw a border with desired color when it text becomes 
               }
         })
 
-A Helper viewgroup is also provided when can contain any number ValidationNotifierEditText and can notify you when all of the ValidationNotifierEditText has valid texts 
+A Helper viewgroup which is a child of ConstraintLayout so that you can arrage child views with most flexiblity is provided which can contain any number ValidationNotifierEditText and can notify you when all of the ValidationNotifierEditText has valid texts 
 and when any one ValidationNotifierEditText is now invalid but was previous valid , it can be helpful in situations like when you have a form and user should fill corrent data 
 in all text fields then only you want to enable "OK" button.
 In this situation you can use ValidationNotifierEditTextGroup just like a RadioGroup and put your ValidationNotifierEditText inside that container , if will greatly simplyfy the code
@@ -55,6 +55,7 @@ at client side and will decouple all the validation logic from real business log
              app:vne_giveBorder="true"
              android:layout_margin="5dp"
              app:vne_cornerRadius="10dp"
+	     app:layout_constraintTop_toTopOf="parent"
              app:vne_validBorderColor="@android:color/holo_green_dark"
              app:vne_invalidBorderColor="@android:color/holo_red_dark"
              android:layout_width="match_parent"
@@ -69,6 +70,7 @@ at client side and will decouple all the validation logic from real business log
               app:vne_borderWidth="2dp"
               app:vne_cornerRadius="5dp"
               app:vne_giveBorder="true"
+	      app:layout_constraintTop_toBottomOf="vne1"
               app:vne_validBorderColor="@android:color/holo_blue_dark"
               app:vne_invalidBorderColor="@android:color/black"
               android:layout_width="match_parent"
@@ -79,6 +81,7 @@ at client side and will decouple all the validation logic from real business log
  
         <com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditText
             android:id="@+id/vne3"
+	    app:layout_constraintTop_toBottomf="vne2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="enter only upper case letters"
@@ -127,7 +130,7 @@ and in module level build.gradle
 
      dependencies  { 
      
-     implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.1' // use latest vesion 
+     implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.2' // use latest vesion 
      
      }
        

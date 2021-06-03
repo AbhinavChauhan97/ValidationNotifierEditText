@@ -26,7 +26,7 @@ import java.util.*
  * @author abhinavchouhan97@gmail.com
  * @since 13-march-2021
  */
-class ValidationNotifierEditText @JvmOverloads constructor(context: Context, attributeSet: AttributeSet? = null) :
+open class ValidationNotifierEditText @JvmOverloads constructor(context: Context, attributeSet: AttributeSet? = null) :
     androidx.appcompat.widget.AppCompatEditText(context, attributeSet) {
 
     /** without this variable set to true no border will be drawn **/
