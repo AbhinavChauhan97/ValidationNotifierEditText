@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditTextGroup android:id="@+id/vneg"
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/vneg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,6 +11,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
 
     <Button
         android:id="@+id/button"
@@ -88,7 +89,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="20dp" />
 
-</com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditTextGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
