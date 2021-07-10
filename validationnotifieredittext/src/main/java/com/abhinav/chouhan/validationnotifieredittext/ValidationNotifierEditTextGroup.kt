@@ -45,29 +45,15 @@ open class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Co
         override fun onBecomeInvalid(validationNotifierEditText: ValidationNotifierEditText) {
             validationEditTextGroupValidationListener?.onAnyBecomeInvalid(validationNotifierEditText)
         }
-
     }
     private val validationNotifierEditTextList = LinkedList<ValidationNotifierEditText>()
 
-    private var validationEditTextGroupValidationListener: ValidationEditTextGroupValidationListener? = null
+    private var validationEditTextGroupValidationListener: GroupValidationListener? = null
 
     /**
      * interface to use for the validation of child ValidationNotifierEditTexts of this Group
      */
-    interface ValidationEditTextGroupValidationListener {
-        /**
-         * called when all ValidationNotifierEdiText children of this viewgroup contains valid text
-         * @param childValidationNotifierEditTexts list of all children ValidationNotifierEditText that are children of this viewgroup
-         */
-        fun onAllBecomeValid(childValidationNotifierEditTexts: List<ValidationNotifierEditText>)
 
-        /**
-         * called when any ValidationNotifierEditText child of this viewgroup now contains a invalid text but previously
-         * contained valid text
-         * @param validationNotifierEditText the ValidationNotifierEditText which now contains invalid text
-         */
-        fun onAnyBecomeInvalid(validationNotifierEditText: ValidationNotifierEditText)
-    }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         super.addView(child, index, params)
@@ -80,7 +66,7 @@ open class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Co
 
 
 
-    fun setOnGroupValidationListener(validationEditTextGroupValidationListener: ValidationEditTextGroupValidationListener){
+    fun setOnGroupValidationListener(validationEditTextGroupValidationListener: GroupValidationListener){
         this.validationEditTextGroupValidationListener = validationEditTextGroupValidationListener
     }
 }

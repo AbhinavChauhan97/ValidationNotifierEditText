@@ -12,7 +12,7 @@
         <attr name="vne_error_message" format="string"/>
     </declare-styleable>
 
-    <declare-styleable name="VneValidationMediator">
+    <declare-styleable name="VneMediatorGroup">
         <attr name="reference_ids" format="string"/>
     </declare-styleable>
 

@@ -21,6 +21,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <com.abhinav.chouhan.validationnotifieredittext.VneGroup
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:reference_ids="vne1,vne2,vne3"/>
+
     <com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditText
         android:id="@+id/vne1"
         app:vne_borderColor="@android:color/holo_red_dark"
