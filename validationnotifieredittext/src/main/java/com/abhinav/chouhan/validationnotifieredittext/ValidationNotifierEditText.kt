@@ -47,6 +47,7 @@ open class ValidationNotifierEditText @JvmOverloads constructor(context: Context
     /** valid this editText enters a invalid state the border will be drawn with this color **/
     var invalidBorderColor:Int? = null
     var cornerRadius: Float? = null
+    var errorMessage:String? = null
     var borderWidth: Float? = null
     private var paint: Paint? = null
     var validatorRegex: String? // check the validity of text inside this editText against this regex
@@ -106,6 +107,7 @@ open class ValidationNotifierEditText @JvmOverloads constructor(context: Context
         if (validatorRegex != null){
 
             // retrive all the attributes
+            errorMessage = ta.getString(R.styleable.ValidationNotifierEditText_vne_error_message)
             hasBorder = ta.getBoolean(R.styleable.ValidationNotifierEditText_vne_giveBorder, false)
             if (hasBorder) {
                 borderColor =
@@ -124,6 +126,7 @@ open class ValidationNotifierEditText @JvmOverloads constructor(context: Context
             }
             ta.recycle()
             //when the text is changed
+
             doOnTextChanged { text, start, before, count ->
                 super.onTextChanged(text, start, before, count)
                 if (text != null) {
@@ -137,16 +140,26 @@ open class ValidationNotifierEditText @JvmOverloads constructor(context: Context
                             notifyValidity()
                         }
                     } else if (previouslyMatched) {
+                        handleError()
                         isValid = false
                         previouslyMatched = false
                         notifyInvalidity()
+                    }else{
+                        handleError()
                     }
                 }
             }
         } else {
-            isValid = true // if we are not provided a regex to match agains the this edittext is always valid
+            isValid = true // if we are not provided a regex to match against then this edittext is always valid
         }
     }
+
+    fun handleError(){
+        if(errorMessage != null){
+            error = errorMessage
+        }
+    }
+
 
     private fun notifyValidity() {
         validationChangeListenerList.forEach { it.onBecomeValid(this) }
