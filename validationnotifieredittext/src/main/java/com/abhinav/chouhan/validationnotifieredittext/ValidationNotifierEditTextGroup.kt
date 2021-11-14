@@ -46,7 +46,7 @@ open class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Co
             validationEditTextGroupValidationListener?.onAnyBecomeInvalid(validationNotifierEditText)
         }
     }
-    private val validationNotifierEditTextList = LinkedList<ValidationNotifierEditText>()
+    val validationNotifierEditTextList = LinkedList<ValidationNotifierEditText>()
 
     private var validationEditTextGroupValidationListener: GroupValidationListener? = null
 
