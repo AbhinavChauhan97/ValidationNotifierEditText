@@ -27,7 +27,7 @@ class VneGroup(context: Context, attributeSet: AttributeSet) : View(context,attr
     }
 
     private var groupValidationListener: GroupValidationListener? = null
-    private val referencedViews = LinkedList<ValidationNotifierEditText>()
+    val referencedViews = LinkedList<ValidationNotifierEditText>()
     private lateinit var stringIds: List<String>
 
     init {
