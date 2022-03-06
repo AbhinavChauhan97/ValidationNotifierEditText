@@ -34,6 +34,7 @@ open class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Co
     private val listener = object : ValidationNotifierEditText.ValidationChangeListener{
 
         override fun onBecomeValid(validationNotifierEditText: ValidationNotifierEditText) {
+            validationEditTextGroupValidationListener?.onAnyBecomeValid(validationNotifierEditText)
             validationNotifierEditTextList.forEach {
                 if(!it.isValid){
                     return

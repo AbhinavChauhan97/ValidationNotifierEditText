@@ -1,8 +1,10 @@
 # ValidationNotifierEditText
+
 AbhinavChauhan97/ValidationNotifierEditText
 
-A simple EditText which notifies observes when the text inside is valid or invalid by matching the text againt the regular expression that client provide.
-Also client can choose to draw a border with desired color when it text becomes valid or invalid a default border color can also be provided
+A simple EditText which notifies observes when the text inside is valid or invalid by matching the
+text againt the regular expression that client provide. Also client can choose to draw a border with
+desired color when it text becomes valid or invalid a default border color can also be provided
 
 <b> Usage </b>
 
@@ -21,8 +23,8 @@ Also client can choose to draw a border with desired color when it text becomes 
         app:vne_validatorRegex="[1-9]+"
        />
 
- <i>note</i> no border drawing will happen if <b>vne_giveBorder</b> attribute is not set true
-          
+<i>note</i> no border drawing will happen if <b>vne_giveBorder</b> attribute is not set true
+
            val validationNotiferEditText = findViewById(R.id.vne)
            validationNotifierEditText.addValidationChangeListener(object : ValidationNotifierEditText.ValidationChangeListener{
             //called when text is valid
@@ -34,11 +36,16 @@ Also client can choose to draw a border with desired color when it text becomes 
               }
         })
 
-A Helper viewgroup which is a child of ConstraintLayout so that you can arrage child views with most flexiblity is provided which can contain any number ValidationNotifierEditText and can notify you when all of the ValidationNotifierEditText has valid texts 
-and when any one ValidationNotifierEditText is now invalid but was previous valid , it can be helpful in situations like when you have a form and user should fill corrent data 
-in all text fields then only you want to enable "OK" button.
-In this situation you can use ValidationNotifierEditTextGroup just like a RadioGroup and put your ValidationNotifierEditText inside that container , if will greatly simplyfy the code
-at client side and will decouple all the validation logic from real business logic, if tomorrow you like to add another field in the form you just change in the xml and all your business logic remains untouched
+A Helper viewgroup which is a child of ConstraintLayout so that you can arrage child views with most
+flexiblity is provided which can contain any number ValidationNotifierEditText and can notify you
+when all of the ValidationNotifierEditText has valid texts and when any one
+ValidationNotifierEditText is now invalid but was previous valid , it can be helpful in situations
+like when you have a form and user should fill corrent data in all text fields then only you want to
+enable "OK" button. In this situation you can use ValidationNotifierEditTextGroup just like a
+RadioGroup and put your ValidationNotifierEditText inside that container , if will greatly simplyfy
+the code at client side and will decouple all the validation logic from real business logic, if
+tomorrow you like to add another field in the form you just change in the xml and all your business
+logic remains untouched
 
 <b> Usage </b>
 
@@ -90,8 +97,7 @@ at client side and will decouple all the validation logic from real business log
 
       </com.abhinav.chouhan.validationnotifieredittext.ValidationNotifierEditTextGroup>
 
-
-in code 
+in code
 
         val validationNotifierEditTextGroup = findViewById(R.id.vneg)
         validationNotifierEditTextGroup.setOnGroupValidationListener(object : ValidationNotifierEditTextGroup.ValidationEditTextGroupValidationListener{
@@ -115,9 +121,8 @@ in code
                       okButton.isEnabled = false
                    }
               })
-              
-              
-to use in your project add  in  project level build.gradle    
+
+to use in your project add in project level build.gradle
 
      allprojects {
 		repositories {
@@ -126,15 +131,14 @@ to use in your project add  in  project level build.gradle
 		}
 	}
 
-and in module level build.gradle 
+and in module level build.gradle
 
      dependencies  { 
      
      implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.3.3' // use latest vesion 
      
      }
-       
-             
+
 ![DEMO](https://github.com/AbhinavChauhan97/ValidationNotifierEditText/blob/master/ezgif.com-gif-maker.gif)
 
      

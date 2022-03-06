@@ -13,4 +13,6 @@ interface GroupValidationListener {
      * @param validationNotifierEditText the ValidationNotifierEditText which now contains invalid text
      */
     fun onAnyBecomeInvalid(validationNotifierEditText: ValidationNotifierEditText)
+
+    fun onAnyBecomeValid(validationNotifierEditText: ValidationNotifierEditText)
 }

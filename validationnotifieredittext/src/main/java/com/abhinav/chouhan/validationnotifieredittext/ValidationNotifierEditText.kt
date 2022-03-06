@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
+import android.view.View
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.abhinav.chouhan.validationnotifieredittext.R
@@ -91,6 +92,9 @@ open class ValidationNotifierEditText @JvmOverloads constructor(context: Context
     }
 
 
+    fun addAction(){
+
+    }
     init {
         val ta = context.obtainStyledAttributes(
             attributeSet,
