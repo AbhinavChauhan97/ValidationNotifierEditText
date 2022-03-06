@@ -135,7 +135,7 @@ and in module level build.gradle
 
      dependencies  { 
      
-     implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.3.3' // use latest vesion 
+     implementation 'com.github.AbhinavChauhan97:ValidationNotifierEditText:1.3.7' // use latest vesion 
      
      }
 
