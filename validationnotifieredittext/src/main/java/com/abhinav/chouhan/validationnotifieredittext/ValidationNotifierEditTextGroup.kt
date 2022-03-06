@@ -2,12 +2,9 @@ package com.abhinav.chouhan.validationnotifieredittext
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
-import java.lang.IllegalArgumentException
 import java.util.*
 
 /**
@@ -31,6 +28,16 @@ open class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Co
     : ConstraintLayout(context,attributeSet){
 
     //list which contains a list of validationNotifierEditTexts list
+    var allAreValid:Boolean = false
+        private set
+        get() {
+            validationNotifierEditTextList.forEach {
+                if(!it.isValid){
+                    return false
+                }
+            }
+            return true
+        }
     private val listener = object : ValidationNotifierEditText.ValidationChangeListener{
 
         override fun onBecomeValid(validationNotifierEditText: ValidationNotifierEditText) {
@@ -40,10 +47,12 @@ open class ValidationNotifierEditTextGroup @JvmOverloads constructor(context: Co
                     return
                 }
             }
+            allAreValid = true
             validationEditTextGroupValidationListener?.onAllBecomeValid(validationNotifierEditTextList)
         }
 
         override fun onBecomeInvalid(validationNotifierEditText: ValidationNotifierEditText) {
+            allAreValid = false
             validationEditTextGroupValidationListener?.onAnyBecomeInvalid(validationNotifierEditText)
         }
     }
