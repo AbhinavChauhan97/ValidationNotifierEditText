@@ -13,6 +13,7 @@ class VneGroup(context: Context, attributeSet: AttributeSet) : View(context,attr
     private val listener = object : ValidationNotifierEditText.ValidationChangeListener{
 
         override fun onBecomeValid(validationNotifierEditText: ValidationNotifierEditText) {
+            groupValidationListener?.onAnyBecomeValid(validationNotifierEditText)
             referencedViews.forEach {
                 if(!it.isValid){
                     return
