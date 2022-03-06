@@ -19,17 +19,29 @@ class VneGroup(context: Context, attributeSet: AttributeSet) : View(context,attr
                     return
                 }
             }
+            allAreValid = true
             groupValidationListener?.onAllBecomeValid(referencedViews)
         }
 
         override fun onBecomeInvalid(validationNotifierEditText: ValidationNotifierEditText) {
+            allAreValid = false
             groupValidationListener?.onAnyBecomeInvalid(validationNotifierEditText)
         }
     }
 
     private var groupValidationListener: GroupValidationListener? = null
-    val referencedViews = LinkedList<ValidationNotifierEditText>()
+    private val referencedViews = LinkedList<ValidationNotifierEditText>()
     private lateinit var stringIds: List<String>
+    var allAreValid:Boolean = false
+        private set
+        get() {
+        referencedViews.forEach { 
+            if(!it.isValid){
+                return false
+            }
+        }
+        return true    
+    }
 
     init {
         val ta = context.obtainStyledAttributes(attributeSet, R.styleable.VneMediatorGroup, 0, 0)
@@ -78,6 +90,7 @@ class VneGroup(context: Context, attributeSet: AttributeSet) : View(context,attr
     }
 
 
+    
     fun setOnGroupValidationListener(groupValidationListener: GroupValidationListener){
         this.groupValidationListener = groupValidationListener
     }
